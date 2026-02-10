@@ -24,9 +24,9 @@ const filteredTodos = computed(() => {
 })
 
 // 业务操作
-function addTodo(title) {
+function addTodo(title) { // 增加todo
   const trimmed = title.trim()
-  if (!trimmed) return
+  if (!trimmed) return // function unshift() description: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
   todos.value.unshift({
     id: crypto.randomUUID(),
     title: trimmed,
@@ -35,16 +35,16 @@ function addTodo(title) {
   })
 }
 
-function toggleTodo(id) {
+function toggleTodo(id) { // 改变todo属性
   const t = todos.value.find(x => x.id === id)
   if (t) t.done = !t.done
 }
 
-function removeTodo(id) {
+function removeTodo(id) { // 删除done状态
   todos.value = todos.value.filter(t => t.id !== id)
 }
 
-function setFilter(next) {
+function setFilter(next) { // 切换filter状态
   filter.value = next
 }
 
