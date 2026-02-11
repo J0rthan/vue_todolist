@@ -81,7 +81,7 @@ watch(
     <main class="card">
       <TodoInput @add="addTodo"></TodoInput>
 
-      <TodoFilter :model-value="filter" @update:model-value="setFilter" />
+      <TodoFilter :modelValue="filter" @update-modelValue="setFilter"></TodoFilter>
 
       <TodoList
         :todos="filteredTodos"

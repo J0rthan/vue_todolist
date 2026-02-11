@@ -1,20 +1,23 @@
 <script setup>
+
 const props = defineProps({
-  modelValue: { type: String, default: 'all' }
-})
-const emit = defineEmits(['update:modelValue'])
+    modelValue: { type: String, default: 'all'}
+}
+)
+
+const emits = defineEmits(['update-modelValue'])
 
 function set(value) {
-  emit('update:modelValue', value)
+    emits('update-modelValue', value)
 }
 </script>
 
 <template>
   <div class="bar">
-    <button class="chip" :class="{ active: modelValue === 'all' }" @click="set('all')">
+    <button class="chip" " :class="{ action: modelValue == 'All' }" @click="set('all')">
       All
     </button>
-    <button class="chip" :class="{ active: modelValue === 'active' }" @click="set('active')">
+    <button class="chip" " :class="{ action: modelValue == 'Active'}" @click="set('active')">
       Active
     </button>
     <button class="chip" :class="{ active: modelValue === 'done' }" @click="set('done')">
