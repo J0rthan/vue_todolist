@@ -13,26 +13,30 @@ const filter = ref('all') // all | active | done
 
 // 统计（计算属性）
 const totalCount = computed(() => todos.value.length)
-const doneCount = computed(() => todos.value.filter(t => t.done).length)
-const activeCount = computed(() => totalCount.value - doneCount.value)
+const activeCount = computed(() => todos.value.filter(t => !t.done).length)
+const doneCount = computed(() => totalCount.value - activeCount.value)
 
 // 过滤后的列表（计算属性）
 const filteredTodos = computed(() => {
-  if (filter.value === 'active') return todos.value.filter(t => !t.done)
-  if (filter.value === 'done') return todos.value.filter(t => t.done)
-  return todos.value
+  if (filter.value == 'active') return todos.value.filter(t => !t.done)
+  else if (filter.value == 'done') return todos.value.filter(t => t.done)
+  else return todos.value
 })
 
 // 业务操作
 function addTodo(title) { // 增加todo
   const trimmed = title.trim()
-  if (!trimmed) return // function unshift() description: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/unshift
-  todos.value.unshift({
-    id: crypto.randomUUID(),
-    title: trimmed,
-    done: false,
-    createdAt: Date.now()
-  })
+  if (!trimmed) return
+  else {
+    todos.value.unshift(
+      {
+        id: crypto.randomUUID,
+        title: trimmed,
+        done: false,
+        createdAt: Date.now()
+      }
+    )
+  }
 }
 
 function toggleTodo(id) { // 改变todo属性
