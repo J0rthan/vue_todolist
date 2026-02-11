@@ -72,14 +72,14 @@ watch(
 <template>
   <div class="page">
     <header class="header">
-      <h1>TodoLite</h1>
+      <h1>TodoList</h1>
       <p class="sub">
-        Total: {{ totalCount }} ｜ Active: {{ activeCount }} ｜ Done: {{ doneCount }}
+        Total: {{ totalCount }} | Active: {{ activeCount }} | Done: {{ doneCount }}
       </p>
     </header>
 
     <main class="card">
-      <TodoInput @add="addTodo" />
+      <TodoInput @add="addTodo"></TodoInput>
 
       <TodoFilter :model-value="filter" @update:model-value="setFilter" />
 

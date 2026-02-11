@@ -6,17 +6,18 @@ const title = ref('')
 const emit = defineEmits(['add'])
 
 function submit() {
-  emit('add', title.value)
-  title.value = ''
+    emit('add', title.value)
+    title.value = ''
 }
+
 </script>
 
 <template>
   <form class="row" @submit.prevent="submit">
     <input
       class="input"
-      v-model="title"
       placeholder="Add a todo..."
+      v-model="title"
       maxlength="60"
     />
     <button class="btn" type="submit">Add</button>
