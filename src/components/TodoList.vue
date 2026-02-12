@@ -17,15 +17,15 @@ function onRemove(id) {
 
 <template>
   <div class="list">
-    <p v-if="todos.length === 0" class="empty">No todos.</p>
+    <p v-if="todos.length == 0" class="empty">No todos.</p>
 
     <TodoItem
-      v-for="t in todos"
-      :key="t.id"
-      :todo="t"
-      @toggle="onToggle"
-      @remove="onRemove"
-    />
+        v-for="t in todos"
+        :key="t.id"
+        :todo="t"
+        @toggle="onToggle"
+        @remove="onRemove"
+    ></TodoItem>
   </div>
 </template>
 

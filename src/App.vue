@@ -91,7 +91,7 @@ watch(
         :todos="filteredTodos"
         @toggle="toggleTodo"
         @remove="removeTodo"
-      />
+      ></TodoList>
     </main>
   </div>
 </template>
