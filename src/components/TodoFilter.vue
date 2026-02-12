@@ -14,10 +14,10 @@ function set(value) {
 
 <template>
   <div class="bar">
-    <button class="chip" " :class="{ action: modelValue == 'All' }" @click="set('all')">
+    <button class="chip" " :class="{ active: modelValue == 'all' }" @click="set('all')">
       All
     </button>
-    <button class="chip" " :class="{ action: modelValue == 'Active'}" @click="set('active')">
+    <button class="chip" " :class="{ active: modelValue == 'active'}" @click="set('active')">
       Active
     </button>
     <button class="chip" :class="{ active: modelValue === 'done' }" @click="set('done')">
